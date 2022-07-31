@@ -63,6 +63,23 @@ public class BirdService {
         parrotWithDuck.fly();
         parrotWithDuck.sing();
 
+        logger.info("******** Fish Shark *******");
+        Fish sharkFish=new Shark();
+        sharkFish.swim();
+        sharkFish.fly();
+        sharkFish.sing();
+        sharkFish.eat();
+
+        logger.info("******** Fish Clownfish *******");
+
+        Fish clownfish=new Clownfish();
+        clownfish.swim();
+        clownfish.fly();
+        clownfish.sing();
+        clownfish.makeJokes();
+        clownfish.eat();
+
+
     }
 
 }
