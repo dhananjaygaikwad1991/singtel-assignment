@@ -26,7 +26,21 @@ public class BirdService {
         roosterHas.walk();
         roosterHas.fly();
         roosterHas.sing();
+        logger.info("******** Parrot with Dog *******");
+        Parrot parrotWithDog = new Parrot();
+        parrotWithDog.livingWith(new Dog());
+        parrotWithDog.walk();
+        parrotWithDog.fly();
+        parrotWithDog.sing();
+        parrotWithDog.sing();
 
+        logger.info("******** Parrot near Phone *******");
+        Parrot parrotNearPhone = new Parrot();
+        parrotNearPhone.nearWith(new Phone());
+        parrotNearPhone.walk();
+        parrotNearPhone.fly();
+        parrotNearPhone.sing();
+        parrotNearPhone.sing();
     }
 
 }
