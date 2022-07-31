@@ -1,0 +1,55 @@
+apiVersion: v1 # Kubernetes API version
+kind: Service # Kubernetes resource kind we are creating
+metadata: # Metadata of the resource kind we are creating
+  name: singtel-assignment-service
+  namespace: singtel-dev
+spec:
+  selector:
+    app: singtel-assignment
+  ports:
+    - protocol: "TCP"
+      port: 8080 # The port that the service is running on in the cluster
+      targetPort: 8080 # The port exposed by the service
+
+---
+
+apiVersion: apps/v1
+kind: Deployment # Kubernetes resource kind we are creating
+metadata:
+  name: singtel-assignment
+  namespace: singtel-dev
+spec:
+  selector:
+    matchLabels:
+      app: singtel-assignment
+  replicas: 2 # Number of replicas that will be created for this deployment
+  template:
+    metadata:
+      labels:
+        app: singtel-assignment
+    spec:
+      containers:
+        - name: singtel-assignment
+          image: singtel-assignment:latest # Image that will be used to containers in the cluster
+          imagePullPolicy: IfNotPresent
+          envFrom:
+             - configMapRef:
+                 name: application-config
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: application-config
+  namespace: singtel-dev
+  uid: b4952dc3-d670-11e5-8cd0-68f728db1985
+data:
+  application.properties: |
+    spring.application.name=singtel.assignment
+    server.port=8080
+    #Assignment PROXY
+    zuul.routes.scheduler.path=/animal/**
+    zuul.routes.scheduler.serviceId=singtel-assignment
+
+
+

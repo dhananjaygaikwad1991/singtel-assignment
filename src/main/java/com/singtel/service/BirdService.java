@@ -4,9 +4,11 @@ package com.singtel.service;
 import com.singtel.model.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
@@ -15,6 +17,8 @@ import java.util.stream.Collectors;
 @Service
 public class BirdService {
     Logger logger = LoggerFactory.getLogger(BirdService.class);
+    @Autowired
+    Map<String, String> languages;
 
     public void testBird() {
         logger.info("******** Duck *******");
@@ -124,6 +128,13 @@ public class BirdService {
         logger.info("********* Animals that can sing: : {}, and cannot wing: {}", animalsSings.get(true).size(), animalsSings.get(false).size());
         logger.info("********* Animals that can swim: : {}, and cannot swim: {}", animalsSwims.get(true).size(), animalsSwims.get(false).size());
 
+
+    }
+
+    public Map<String, String> getRoosterLanguageSound(String language) {
+        Map<String, String> languageMap = new HashMap<>();
+        languageMap.put("Rooster", languages.get(language));
+        return languageMap;
 
     }
 
