@@ -55,6 +55,14 @@ public class BirdService {
         parrotWithRooster.walk();
         parrotWithRooster.fly();
         parrotWithRooster.sing();
+
+        logger.info("******** Parrot with Duck *******");
+        Parrot parrotWithDuck = new Parrot();
+        parrotWithDuck.livingWith(new Duck());
+        parrotWithDuck.walk();
+        parrotWithDuck.fly();
+        parrotWithDuck.sing();
+
     }
 
 }
