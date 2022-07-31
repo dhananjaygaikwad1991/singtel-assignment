@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 public class Duck extends Bird{
 	Logger logger = LoggerFactory.getLogger(Duck.class);
 	public boolean fly() {
-		 logger.info("I am flying");
+		 logger.info("I can fly");
 		return true;
 		}
 

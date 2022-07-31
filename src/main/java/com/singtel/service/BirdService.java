@@ -6,6 +6,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
 @Service
 public class BirdService {
     Logger logger = LoggerFactory.getLogger(BirdService.class);
@@ -94,6 +100,30 @@ public class BirdService {
         butterflyCaterPiller.fly();
         butterflyCaterPiller.isCaterpiller();
         butterflyCaterPiller.fly();
+
+        ArrayList<Animal> animals = new ArrayList<>();
+        animals.add(new Bird());
+        animals.add(new Duck());
+        animals.add(new Chicken());
+        animals.add(new Rooster());
+        animals.add(new Parrot());
+        animals.add(new Shark());
+        animals.add(new Clownfish());
+        animals.add(new Dog());
+        animals.add(new Butterfly());
+        animals.add(new Cat());
+
+        Map<Object, Map<Object, List<Animal>>> animalsFlies = animals.stream().collect(Collectors.groupingBy(animal -> animal.fly(), Collectors.groupingBy(animal -> animal)));
+        Map<Object, Map<Object, List<Animal>>> animalsWalks = animals.stream().collect(Collectors.groupingBy(animal -> animal.walk(), Collectors.groupingBy(animal -> animal)));
+        Map<Object, Map<Object, List<Animal>>> animalsSings = animals.stream().collect(Collectors.groupingBy(animal -> animal.sing(), Collectors.groupingBy(animal -> animal)));
+        Map<Object, Map<Object, List<Animal>>> animalsSwims = animals.stream().collect(Collectors.groupingBy(animal -> animal.swim(), Collectors.groupingBy(animal -> animal)));
+
+
+        logger.info("********* Animals that can fly: {}, and cannot fly: {} ", animalsFlies.get(true).size(), animalsFlies.get(false).size());
+        logger.info("********* Animals that can walk: : {}, and cannot walk: {} ", animalsWalks.get(true).size(), animalsWalks.get(false).size());
+        logger.info("********* Animals that can sing: : {}, and cannot wing: {}", animalsSings.get(true).size(), animalsSings.get(false).size());
+        logger.info("********* Animals that can swim: : {}, and cannot swim: {}", animalsSwims.get(true).size(), animalsSwims.get(false).size());
+
 
     }
 

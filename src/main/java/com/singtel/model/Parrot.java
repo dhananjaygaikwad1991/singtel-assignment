@@ -23,7 +23,7 @@ public class Parrot extends Bird {
     }
 
     public boolean fly() {
-        logger.info("I am flying");
+        logger.info("I can fly");
         return true;
     }
 
