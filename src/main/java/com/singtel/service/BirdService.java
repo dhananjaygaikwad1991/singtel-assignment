@@ -64,7 +64,7 @@ public class BirdService {
         parrotWithDuck.sing();
 
         logger.info("******** Fish Shark *******");
-        Fish sharkFish=new Shark();
+        Fish sharkFish = new Shark();
         sharkFish.swim();
         sharkFish.fly();
         sharkFish.sing();
@@ -72,13 +72,28 @@ public class BirdService {
 
         logger.info("******** Fish Clownfish *******");
 
-        Fish clownfish=new Clownfish();
+        Fish clownfish = new Clownfish();
         clownfish.swim();
         clownfish.fly();
         clownfish.sing();
         clownfish.makeJokes();
         clownfish.eat();
 
+        logger.info("******** ButterFly/ not Caterpiller*******");
+
+        Butterfly butterfly = new Butterfly();
+        butterfly.setCaterpiller(false);
+        butterfly.fly();
+        butterfly.isCaterpiller();
+        butterfly.fly();
+
+        logger.info("******** ButterFly/ Caterpiller*******");
+
+        Butterfly butterflyCaterPiller = new Butterfly();
+        butterflyCaterPiller.setCaterpiller(true);
+        butterflyCaterPiller.fly();
+        butterflyCaterPiller.isCaterpiller();
+        butterflyCaterPiller.fly();
 
     }
 
