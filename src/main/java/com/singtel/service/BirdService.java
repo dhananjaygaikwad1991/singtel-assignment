@@ -16,6 +16,11 @@ public class BirdService {
         duck.walk();
         duck.fly();
         duck.sing();
+        logger.info("******** Rooster *******");
+        Animal rooster = new Rooster();
+        rooster.walk();
+        rooster.fly();
+        rooster.sing();
 
     }
 
