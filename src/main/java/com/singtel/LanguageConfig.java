@@ -15,7 +15,8 @@ public class LanguageConfig {
     @Bean
     Map<String, String> languages() {
         logger.info("********* SETUP LANGUAGES *************");
-
+        logger.info("********* SETUP LANGUAGES1 *************");
+        logger.info("********* SETUP LANGUAGES2 *************");
         Map<String, String> languages = new HashMap<String, String>();
         languages.put("French", "cocorico");
         languages.put("German", "kikeriki");
