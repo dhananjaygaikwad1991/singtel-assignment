@@ -18,6 +18,8 @@ public class LanguageConfig {
         logger.info("********* SETUP LANGUAGES1 *************");
         logger.info("********* SETUP LANGUAGES2 *************");
         logger.info("********* SETUP LANGUAGES3 *************");
+        logger.info("********* SETUP LANGUAGES4 *************");
+        logger.info("********* SETUP LANGUAGES5 *************");
         Map<String, String> languages = new HashMap<String, String>();
         languages.put("French", "cocorico");
         languages.put("German", "kikeriki");
